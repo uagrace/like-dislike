@@ -1,0 +1,190 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+
+
+// Our variables
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-font-size:   16px;
+$base-font-weight: 400;
+$small-font-size:  $base-font-size * 0.875;
+$base-line-height: 1.5;
+
+$spacing-unit:     30px;
+
+$text-color:       #111;
+$background-color: #fdfdfd;
+$brand-color:      #2a7ae2;
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+// Width of the content area
+$content-width:    800px;
+
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+
+// Use media queries like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "layout",
+        "syntax-highlighting"
+;
+
+.site-header {
+  height: 60px;
+  width: 100%;
+  background: url(../images/nav-bg.gif) #353535;
+  border-bottom: 4px solid #434343;
+  -moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  -o-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.site-header nav li {
+  font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  list-style: none;
+  display: inline;
+  color: white;
+  line-height: 50px;
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+  font-size: 14px;
+}
+
+.site-header nav li a {
+  color: white;
+  border: 1px solid #5d910b;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #93bd20), color-stop(100%, #659e10));
+  background: -webkit-linear-gradient(#93bd20, #659e10);
+  background: -moz-linear-gradient(#93bd20, #659e10);
+  background: -o-linear-gradient(#93bd20, #659e10);
+  background: -ms-linear-gradient(#93bd20, #659e10);
+  background: linear-gradient(#93bd20, #659e10);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  background-color: #93bd20;
+  padding: 10px 12px;
+  margin-top: 6px;
+  line-height: 14px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+}
+
+.site-header nav li a:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #749619), color-stop(100%, #527f0e));
+  background: -webkit-linear-gradient(#749619, #527f0e);
+  background: -moz-linear-gradient(#749619, #527f0e);
+  background: -o-linear-gradient(#749619, #527f0e);
+  background: -ms-linear-gradient(#749619, #527f0e);
+  background: linear-gradient(#749619, #527f0e);
+  background-color: #659e10;
+  border: 1px solid #527f0e;
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  -o-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+}
+
+.site-header nav li.fork {
+  float: right;
+  margin-left: 6px;
+}
+
+.site-header nav li.downloads {
+  float: right;
+  margin-left: 6px;
+}
+
+.site-title, .site-title:visited {
+  color: #FFF !important;
+  letter-spacing: 0;
+  line-height: 52px;
+}
+
+pre {
+  font-size: 12px;
+}
+
+pre {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  overflow: auto;
+  font-size: 85%;
+  //line-height: 1.45;
+  border-radius: 3px;
+}
+
+.highlight {
+  margin-top: 1em;
+}
+
+.site-header .description {
+  color: gold;
+  margin-top: 1.12em;
+  margin-left: 1em;
+  float: left;
+}
+
+.example {
+  margin-bottom: 2em;
+  float: left;
+  width: 100%;
+}
+
+.example .rating {
+  float: left;
+  margin-right: 30px;
+} 
+
+.example .likes, .example .dislikes {
+  margin-right: 0.5em;
+}
+
+.example .option {
+  margin-top: 4px;
+}
+
+.pl-c1, .pl-s .pl-v {
+    color: #0086b3;
+}
+
+.pl-k {
+    color: #a71d5d;
+}
+
+.btn {
+  background-image: none !important;
+  outline: 0 !important;
+  padding: 6px 16px;
+}

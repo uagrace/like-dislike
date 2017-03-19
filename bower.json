@@ -1,6 +1,6 @@
 {
   "name": "like-dislike",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "jQuery rating plugin",
   "main": "js/like-dislike.js",
   "dependencies": {
@@ -19,8 +19,6 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ]
 }

@@ -1,10 +1,7 @@
 /**
- * like-dislike.js v1.0.0
- *
- * jQuery rating plugin, https://github.com/uagrace/like-dislike
- *
- * Copyright 2016 Maxim Tkachuk <mxtkachuk@gmail.com>
- *
+ * like-dislike.js v1.0.1
+ * @link https://github.com/uagrace/like-dislike
+ * @copyright 2016 Maxim Tkachuk <mxtkachuk@gmail.com>
  * Licensed under the MIT license
  */
 (function ($) {
@@ -99,59 +96,34 @@
                 var btnType = btn.hasClass(opts.likeBtnClass) ? likeBtn : dislikeBtn;
                 var hasActive = self.btns.hasClass(opts.activeClass);
                 var isActive = btn.hasClass(opts.activeClass);
-                var value = 0;
-                var l = 0;
-                var d = 0;
 
-                if (opts.reverseMode) {
-                    if (btnType === likeBtn) {
-                        if (isActive) {
-                            self.btnUp(likeBtn);
-                            l = -1;
-                        } else {
-                            self.btnUp(dislikeBtn);
-                            self.btnDown(likeBtn);
-                            d = hasActive ? -1 : d;
-                            l = 1;
-                            value = 1;
-                        }
+                var value = 0, l = 0, d = 0;
+
+                if (btnType === likeBtn) {
+                    if (isActive) {
+                        self.btnUp(likeBtn);
+                        l = -1;
                     } else {
-                        if (isActive) {
+                        if (hasActive) {
                             self.btnUp(dislikeBtn);
                             d = -1;
-                        } else {
-                            self.btnUp(likeBtn);
-                            self.btnDown(dislikeBtn);
-                            l = hasActive ? -1 : l;
-                            d = 1;
-                            value = -1;
                         }
+                        self.btnDown(likeBtn);
+                        l = 1;
+                        value = 1;
                     }
                 } else {
-                    if (btnType === likeBtn) {
-                        if (hasActive) {
-                            self.btnUp(dislikeBtn);
-                            self.btnDown(likeBtn);
-                            d = !isActive ? -1 : d;
-                            l = 1;
-                            value = !isActive ? 1 : value;
-                        } else {
-                            self.btnDown(likeBtn);
-                            l = 1;
-                            value = 1;
-                        }
+                    if (isActive) {
+                        self.btnUp(dislikeBtn);
+                        d = -1;
                     } else {
                         if (hasActive) {
                             self.btnUp(likeBtn);
-                            self.btnDown(dislikeBtn);
-                            l = !isActive ? -1 : l;
-                            d = 1;
-                            value = !isActive ? -1 : value;
-                        } else {
-                            self.btnDown(dislikeBtn);
-                            d = 1;
-                            value = -1;
+                            l = -1;
                         }
+                        self.btnDown(dislikeBtn);
+                        d = 1;
+                        value = -1;
                     }
                 }
 
